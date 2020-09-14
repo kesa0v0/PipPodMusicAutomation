@@ -10,4 +10,6 @@ def getFiles(path):
 def mp3toWav(src, dst):
     sound = AudioSegment.from_mp3(src)
     sound.export(dst, format="wav")
-    print(src, dst)
+    print("number:", dst)
+    print("Source:", src)
+    print()
