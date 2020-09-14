@@ -2,8 +2,6 @@ import tkinter as tk
 from tkinter import ttk
 from tkinter import filedialog
 
-from multiprocessing import Process, Manager
-
 from processing import *
 
 
@@ -44,7 +42,5 @@ class MainWnd(tk.Frame):
 
         os.mkdir(path + "\\result")
 
-        with Manager():
-            for i in range(len(files)):
-                p = Process(target=mp3toWav, args=(path + '\\' + files[i], path + "\\result\\" + str(i) + '.wav'))
-                p.start()
+        for i in range(len(files)):
+            mp3toWav(path + '\\' + files[i], path + "\\result\\" + str(i) + '.wav')
